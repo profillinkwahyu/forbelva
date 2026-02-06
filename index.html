@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Belva: Sebuah Persembahan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+</head>
+<body>
+    <div id="app">
+        <section id="welcome-page" class="page active">
+            <img src="https://i.ibb.co/L5r1hV1/cute-cat.png" alt="Cute Cat" class="cute-icon">
+            <h1>Hello My Love!</h1>
+            <p>Do you want to see your gift?</p>
+            <div class="button-group">
+                <button id="yes-button" class="btn primary">YES PLEASE</button>
+                <button id="no-button" class="btn secondary">NO THANKS</button>
+            </div>
+        </section>
+
+        <section id="main-menu" class="page hidden">
+            <h2>THESE ARE FOR YOU!</h2>
+            <p class="subtitle">I hope you like it, I love you!</p>
+            <div class="grid-menu">
+                <div class="menu-item" data-target="photo-gallery">
+                    <img src="https://i.ibb.co/k2D7h81/image-icon.png" alt="Photo Icon">
+                    <span>Captured Memories</span>
+                </div>
+                <div class="menu-item" data-target="music-video">
+                    <img src="https://i.ibb.co/Wc63969/music-icon.png" alt="Music Icon">
+                    <span>A Song About You</span>
+                </div>
+                <div class="menu-item" data-target="secret-message">
+                    <img src="https://i.ibb.co/P9tLhR7/letter-icon.png" alt="Letter Icon">
+                    <span>My Heart's Whisper</span>
+                </div>
+                <div class="menu-item" data-target="virtual-flowers">
+                    <img src="https://i.ibb.co/VMyh5qF/flower-icon.png" alt="Flower Icon">
+                    <span>Virtual Flowers</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="photo-gallery" class="page hidden">
+            <h3>Captured Memories</h3>
+            <div class="photo-grid">
+                <img src="https://via.placeholder.com/150/FF7EB3/FFFFFF?text=Momen+1" alt="Momen 1">
+                <img src="https://via.placeholder.com/150/FF758C/FFFFFF?text=Momen+2" alt="Momen 2">
+                <img src="https://via.placeholder.com/150/FF7EB3/FFFFFF?text=Momen+3" alt="Momen 3">
+                <img src="https://via.placeholder.com/150/FF758C/FFFFFF?text=Momen+4" alt="Momen 4">
+                <img src="https://via.placeholder.com/150/FF7EB3/FFFFFF?text=Momen+5" alt="Momen 5">
+                <img src="https://via.placeholder.com/150/FF758C/FFFFFF?text=Momen+6" alt="Momen 6">
+                </div>
+            <button class="btn return-btn">RETURN</button>
+        </section>
+
+        <section id="music-video" class="page hidden">
+            <h3>A Song About You</h3>
+            <p>This song reminds me of you! (>_<)</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=R8D-TjV3-b6P1n0a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p class="song-title">"Nama Lagu Favorit" - Nama Artis</p>
+            <p class="secret-message-hint">Secret message: 1:43 - 1:55</p>
+            <button class="btn return-btn">RETURN</button>
+        </section>
+
+        <section id="secret-message" class="page hidden">
+            <h3>My Heart's Whisper</h3>
+            <div class="message-box">
+                <p>
+                    Halo Belva Elrica Dewi,
+                </p>
+                <p>
+                    Dalam setiap detak waktu, dan setiap ruang yang kita lewati, kaulah melodi yang paling indah, sajak yang tak pernah usai. Aku menemukan kedamaian dalam tatapanmu, dan keberanian dalam senyummu. Engkau bukan sekadar hadir, tapi sebuah manifestasi keindahan yang mendalam.
+                </p>
+                <p>
+                    Setiap momen bersamamu adalah pelajaran tentang arti sejati keberadaan, tentang bagaimana dua jiwa bisa menyatu tanpa kehilangan esensinya. Terima kasih telah menjadi inspirasi, pelabuhan, dan rumah. Aku sangat mencintaimu, lebih dari kata-kata bisa ungkapkan.
+                </p>
+                <p class="signature">
+                    Dengan segenap hati, <br>
+                    [Nama Panggilanmu]
+                </p>
+            </div>
+            <button class="btn return-btn">RETURN</button>
+        </section>
+
+        <section id="virtual-flowers" class="page hidden">
+            <h3>Virtual Flowers for My Love</h3>
+            <p>
+                Untukmu, setangkai tulip virtual yang tak akan pernah layu, simbol cinta yang abadi dan keindahan yang tak tergantikan.
+            </p>
+            <div class="flower-container">
+                <img src="https://i.ibb.co/hK7Jg8q/tulips.png" alt="Virtual Tulips" class="virtual-flower-img">
+                <p class="flower-description">
+                    Setiap kelopak mewakili kebahagiaan, setiap warna melambangkan semangatmu.
+                </p>
+            </div>
+            <button class="btn return-btn">RETURN</button>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
