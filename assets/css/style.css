@@ -1,0 +1,52 @@
+/* Efek Tekstur Kertas */
+.crinkled-paper {
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-color: #fdfcf0;
+}
+
+.letter-paper {
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+    border-radius: 2px;
+    position: relative;
+}
+
+/* Animasi Bunga Melayang */
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Floating Messages Animation */
+.floating-text {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -10px); }
+}
+
+/* Polaroid rotate AOS custom */
+[data-aos="rotate-in-left"] {
+    transform: rotate(-15deg) scale(0.8);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+[data-aos="rotate-in-left"].aos-animate {
+    transform: rotate(3deg) scale(1);
+    opacity: 1;
+}
+
+[data-aos="rotate-in-right"] {
+    transform: rotate(15deg) scale(0.8);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+[data-aos="rotate-in-right"].aos-animate {
+    transform: rotate(-3deg) scale(1);
+    opacity: 1;
+  }
