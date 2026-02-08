@@ -1,0 +1,37 @@
+/* Font Styles */
+.dancing-font {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.poppins-light {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+.poppins-regular {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.poppins-medium {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.poppins-semibold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Custom Text Effects */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, var(--color-pink), var(--color-dark-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
