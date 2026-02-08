@@ -1,115 +1,123 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Love Letter</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Font Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome untuk icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love | Digital Gift</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Romantic) -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Mengatur font khusus melalui Tailwind */
+        .font-romantic { font-family: 'Dancing Script', cursive; }
+        .font-handwritten { font-family: 'Sacramento', cursive; }
+        .font-main { font-family: 'Quicksand', sans-serif; }
+    </style>
 </head>
+<body class="bg-[#fdfcf0] font-main overflow-x-hidden">
 
-<body class="bg-gradient-to-b from-pink-50 via-red-50 to-pink-100 min-h-screen">
-  <!-- Navigation / Menu -->
-  <nav id="navbar" class="hidden fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-md py-3">
-    <div class="container-fluid px-4">
-      <div class="flex justify-between items-center">
-        <h2 class="text-pink-600 font-bold text-lg">💌 Our Love Story</h2>
-        <ul class="flex gap-4 list-none m-0 p-0">
-          <li><a href="#" onclick="goToSection('landing')" class="text-pink-600 hover:text-red-600 transition">Home</a></li>
-          <li><a href="#" onclick="goToSection('gallery')" class="text-pink-600 hover:text-red-600 transition">Memories</a></li>
-          <li><a href="#" onclick="goToSection('flowers')" class="text-pink-600 hover:text-red-600 transition">Flowers</a></li>
-          <li><a href="#" onclick="goToSection('music')" class="text-pink-600 hover:text-red-600 transition">Song</a></li>
-          <li><a href="#" onclick="goToSection('message')" class="text-pink-600 hover:text-red-600 transition">Letter</a></li>
-        </ul>
-      </div>
+    <!-- 1. LANDING PAGE (Overlay) -->
+    <div id="landing-page" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#fdfcf0] crinkled-paper">
+        <div class="text-center p-8" data-aos="zoom-in">
+            <h1 class="font-romantic text-5xl text-red-800 mb-4">Hello My Love! ❤️</h1>
+            <p class="text-gray-600 mb-8">Do you want to see your gift?</p>
+            <div class="flex gap-4 justify-center relative h-16">
+                <button onclick="startApp()" class="px-8 py-2 bg-red-700 text-white rounded-full shadow-lg hover:bg-red-800 transition">Yes Please!</button>
+                <button id="no-btn" class="px-8 py-2 bg-gray-200 text-gray-700 rounded-full absolute transition-all duration-200">No Thanks</button>
+            </div>
+        </div>
     </div>
-  </nav>
 
-  <!-- 1. LANDING PAGE -->
-  <section id="landing" class="min-h-screen flex items-center justify-center px-4 py-10">
-    <div class="paper-effect max-w-2xl w-full mx-auto text-center animate-fade-in">
-      <!-- Decorative Icons -->
-      <div class="mb-8">
-        <span class="text-6xl animate-bounce">💌</span>
-      </div>
-
-      <h1 class="text-5xl font-bold text-red-600 mb-4 font-serif">Hello My Love!</h1>
-      
-      <p class="text-xl text-pink-700 mb-8 font-light">
-        Aku punya sesuatu yang spesial untukmu...
-      </p>
-
-      <p class="text-lg text-gray-600 mb-12 italic">
-        "Do you want to see your gift? 🎁"
-      </p>
-
-      <!-- Button Container -->
-      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-        <button id="no-btn" class="btn-custom btn-custom-no px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
-          No Thanks 😔
-        </button>
-        <button id="yes-btn" class="btn-custom btn-custom-yes px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
-          Yes Please 💕
-        </button>
-      </div>
-
-      <!-- Bujukan Message -->
-      <div id="bujukan" class="hidden mt-8 animate-pulse">
-        <p class="text-pink-700 font-bold text-lg mb-3">Yakin tidak? 🥺</p>
-        <p class="text-gray-600 mb-4">Hadiahnya spesial banget lho... klik "Yes Please" dong!</p>
+    <!-- MAIN CONTENT (Hidden initially) -->
+    <div id="main-content" class="hidden">
         
-        <!-- Animated Floating Hearts -->
-        <div class="flex justify-center gap-2">
-          <span class="text-2xl animate-bounce">💕</span>
-          <span class="text-2xl animate-bounce" style="animation-delay: 0.2s;">💕</span>
-          <span class="text-2xl animate-bounce" style="animation-delay: 0.4s;">💕</span>
-        </div>
-      </div>
+        <!-- 2. FLOWER SECTION -->
+        <section class="min-h-screen flex flex-col items-center justify-center p-10 relative overflow-hidden">
+            <div class="crinkled-paper-bg"></div>
+            <h2 class="font-romantic text-4xl text-red-900 mb-10" data-aos="fade-up">Virtual Flowers For You</h2>
+            <div class="relative" data-aos="zoom-in">
+                <!-- Tulip Illustration (Ganti dengan gambar Tulip-mu) -->
+                <img src="https://cdn-icons-png.flaticon.com/512/864/864818.png" alt="Tulip" class="w-48 mx-auto animate-bounce-slow">
+                
+                <!-- Floating Messages -->
+                <div class="floating-text text-sm bg-white/80 p-2 rounded shadow-sm border border-pink-200 absolute -top-10 -left-20">"Lambang ketulusanku"</div>
+                <div class="floating-text text-sm bg-white/80 p-2 rounded shadow-sm border border-pink-200 absolute top-20 -right-24">"You deserve the world"</div>
+            </div>
+        </section>
 
-      <!-- Scroll Indicator -->
-      <div class="mt-12 text-pink-600 animate-bounce">
-        <p class="text-sm">Click "Yes Please" to continue ⬇️</p>
-      </div>
+        <!-- 3. MEMORIES SECTION (Polaroid) -->
+        <section class="container py-20">
+            <h2 class="text-center font-romantic text-4xl text-red-900 mb-12">Captured Memories</h2>
+            <div class="row g-4 justify-center">
+                <!-- Polaroid 1 -->
+                <div class="col-md-3 col-6" data-aos="rotate-in-left">
+                    <div class="bg-white p-3 shadow-xl transform rotate-3 hover:rotate-0 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1516589174184-c6852651428a?q=80&w=400" alt="Memory 1" class="w-full h-48 object-cover mb-4">
+                        <p class="text-center font-handwritten text-2xl text-gray-700">First Date</p>
+                    </div>
+                </div>
+                <!-- Polaroid 2 -->
+                <div class="col-md-3 col-6" data-aos="rotate-in-right">
+                    <div class="bg-white p-3 shadow-xl transform -rotate-3 hover:rotate-0 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?q=80&w=400" alt="Memory 2" class="w-full h-48 object-cover mb-4">
+                        <p class="text-center font-handwritten text-2xl text-gray-700">Happy Day</p>
+                    </div>
+                </div>
+                <!-- Polaroid 3 -->
+                <div class="col-md-3 col-6" data-aos="rotate-in-left">
+                    <div class="bg-white p-3 shadow-xl transform rotate-6 hover:rotate-0 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=400" alt="Memory 3" class="w-full h-48 object-cover mb-4">
+                        <p class="text-center font-handwritten text-2xl text-gray-700">Our Laugh</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MUSIC PLAYER SECTION -->
+        <section class="container py-20 text-center bg-pink-50/50 rounded-3xl my-10 border-y border-pink-100">
+            <h2 class="font-romantic text-3xl text-red-800 mb-6">Listen to This... 🎵</h2>
+            <div class="max-w-xl mx-auto shadow-2xl rounded-2xl overflow-hidden">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SXHwgBTPhuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="mt-6 italic text-gray-500">"Pesan rahasia ada di menit 01:20"</p>
+        </section>
+
+        <!-- 5. MESSAGE SECTION (The Letter) -->
+        <section class="container py-20">
+            <div class="max-w-2xl mx-auto bg-white p-10 shadow-2xl relative letter-paper" data-aos="fade-up">
+                <div class="absolute top-0 left-0 w-full h-2 bg-red-800"></div>
+                <h2 class="font-romantic text-4xl text-red-800 mb-8">Message for My Love</h2>
+                <div class="text-gray-700 leading-relaxed space-y-4 font-medium">
+                    <p>Happy Birthday/Anniversary Sayang!</p>
+                    <p>Lewat surat digital ini, aku ingin bilang betapa berartinya kehadiranmu di hidupku. Terima kasih sudah menjadi orang yang selalu ada dalam setiap suka dan dukaku...</p>
+                    <p>Setiap momen yang kita lalui bagaikan kepingan memori berharga yang tidak akan pernah aku lupakan. I love you more than words can say.</p>
+                </div>
+                <div class="mt-12 text-right">
+                    <p class="font-handwritten text-4xl text-red-800">With Love,</p>
+                    <p class="font-bold mt-2">Tama</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-10 text-gray-400 text-sm">
+            &copy; 2023 Made with Heart for You
+        </footer>
     </div>
-  </section>
 
-  <!-- 2. CAPTURED MEMORIES (GALERI FOTO) -->
-  <section id="gallery" class="hidden min-h-screen py-20 px-4">
-    <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-red-600 text-center mb-4">📸 Captured Memories</h2>
-      <p class="text-center text-gray-600 mb-12">Kenangan indah kita bersama...</p>
-
-      <!-- Photo Gallery (Polaroid Style) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        
-        <!-- Polaroid 1 -->
-        <div class="polaroid-card animate-fade-in" style="animation-delay: 0s">
-          <div class="polaroid-image bg-gradient-to-br from-pink-300 to-red-200 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
-            📷
-          </div>
-          <p class="text-center mt-3 font-quicksand text-gray-700">Kenangan Pertama Kita</p>
-        </div>
-
-        <!-- Polaroid 2 -->
-        <div class="polaroid-card animate-fade-in" style="animation-delay: 0.1s">
-          <div class="polaroid-image bg-gradient-to-br from-purple-300 to-pink-300 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
-            🌹
-          </div>
-          <p class="text-center mt-3 font-quicksand text-gray-700">Cinta Kita Tumbuh</p>
-        </div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>        </div>
 
         <!-- Polaroid 3 -->
         <div class="polaroid-card animate-fade-in" style="animation-delay: 0.2s">
