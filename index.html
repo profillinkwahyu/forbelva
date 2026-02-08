@@ -1,345 +1,346 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Love Letter - Untukmu</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/fonts.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/icons/heart.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Love Letter</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome untuk icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <!-- Background Music (autoplay akan dimatikan untuk UX) -->
-    <audio id="bg-music" loop>
-        <source src="https://www.youtube.com/embed/SXHwgBTPhuQ" type="audio/mpeg">
-        <source src="assets/music/untukmu.mp3" type="audio/mpeg">
-    </audio>
 
-    <!-- Landing Page -->
-    <section id="landing-page" class="active-page">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-md-8 col-lg-6 text-center">
-                    <div class="paper-container crinkled-paper p-5">
-                        <div class="heart-beat mb-4">
-                            <i class="fas fa-heart fa-5x text-pink"></i>
-                        </div>
-                        <h1 class="display-4 fw-bold mb-3 text-dark-red">Hello My Love!</h1>
-                        <p class="lead mb-4 text-dark">I have something special for you today. Would you like to see your gift?</p>
-                        
-                        <div class="button-group mt-5">
-                            <button id="yes-btn" class="btn btn-lg btn-love me-3">
-                                <i class="fas fa-heart me-2"></i> Yes Please!
-                            </button>
-                            <button id="no-btn" class="btn btn-lg btn-outline-love">
-                                <i class="fas fa-times me-2"></i> No Thanks
-                            </button>
-                        </div>
-                        
-                        <div id="persuasion-text" class="mt-4 d-none">
-                            <p class="text-muted fst-italic">Are you sure? I made this especially for you... <i class="fas fa-heart text-pink"></i></p>
-                            <button id="really-yes-btn" class="btn btn-sm btn-love mt-2">
-                                Okay, show me!
-                            </button>
-                        </div>
-                        
-                        <div class="mt-5">
-                            <p class="text-muted small">Scroll down or use the menu to explore</p>
-                            <i class="fas fa-chevron-down fa-bounce text-pink"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<body class="bg-gradient-to-b from-pink-50 via-red-50 to-pink-100 min-h-screen">
+  <!-- Navigation / Menu -->
+  <nav id="navbar" class="hidden fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-md py-3">
+    <div class="container-fluid px-4">
+      <div class="flex justify-between items-center">
+        <h2 class="text-pink-600 font-bold text-lg">💌 Our Love Story</h2>
+        <ul class="flex gap-4 list-none m-0 p-0">
+          <li><a href="#" onclick="goToSection('landing')" class="text-pink-600 hover:text-red-600 transition">Home</a></li>
+          <li><a href="#" onclick="goToSection('gallery')" class="text-pink-600 hover:text-red-600 transition">Memories</a></li>
+          <li><a href="#" onclick="goToSection('flowers')" class="text-pink-600 hover:text-red-600 transition">Flowers</a></li>
+          <li><a href="#" onclick="goToSection('music')" class="text-pink-600 hover:text-red-600 transition">Song</a></li>
+          <li><a href="#" onclick="goToSection('message')" class="text-pink-600 hover:text-red-600 transition">Letter</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. LANDING PAGE -->
+  <section id="landing" class="min-h-screen flex items-center justify-center px-4 py-10">
+    <div class="paper-effect max-w-2xl w-full mx-auto text-center animate-fade-in">
+      <!-- Decorative Icons -->
+      <div class="mb-8">
+        <span class="text-6xl animate-bounce">💌</span>
+      </div>
+
+      <h1 class="text-5xl font-bold text-red-600 mb-4 font-serif">Hello My Love!</h1>
+      
+      <p class="text-xl text-pink-700 mb-8 font-light">
+        Aku punya sesuatu yang spesial untukmu...
+      </p>
+
+      <p class="text-lg text-gray-600 mb-12 italic">
+        "Do you want to see your gift? 🎁"
+      </p>
+
+      <!-- Button Container -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+        <button id="no-btn" class="btn-custom btn-custom-no px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
+          No Thanks 😔
+        </button>
+        <button id="yes-btn" class="btn-custom btn-custom-yes px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
+          Yes Please 💕
+        </button>
+      </div>
+
+      <!-- Bujukan Message -->
+      <div id="bujukan" class="hidden mt-8 animate-pulse">
+        <p class="text-pink-700 font-bold text-lg mb-3">Yakin tidak? 🥺</p>
+        <p class="text-gray-600 mb-4">Hadiahnya spesial banget lho... klik "Yes Please" dong!</p>
+        
+        <!-- Animated Floating Hearts -->
+        <div class="flex justify-center gap-2">
+          <span class="text-2xl animate-bounce">💕</span>
+          <span class="text-2xl animate-bounce" style="animation-delay: 0.2s;">💕</span>
+          <span class="text-2xl animate-bounce" style="animation-delay: 0.4s;">💕</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Main Navigation -->
-    <nav id="main-nav" class="navbar navbar-expand-lg navbar-light fixed-top d-none">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-heart text-pink me-2"></i>
-                <span class="dancing-font">Digital Love Letter</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#memories"><i class="fas fa-images me-1"></i> Memories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#flowers"><i class="fas fa-spa me-1"></i> Virtual Flowers</a>
-                    </li>
-                    <li class="nav-link" href="#music"><i class="fas fa-music me-1"></i> Our Song</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#message"><i class="fas fa-envelope me-1"></i> Love Letter</a>
-                    </li>
-                </ul>
-            </div>
+      <!-- Scroll Indicator -->
+      <div class="mt-12 text-pink-600 animate-bounce">
+        <p class="text-sm">Click "Yes Please" to continue ⬇️</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CAPTURED MEMORIES (GALERI FOTO) -->
+  <section id="gallery" class="hidden min-h-screen py-20 px-4">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-red-600 text-center mb-4">📸 Captured Memories</h2>
+      <p class="text-center text-gray-600 mb-12">Kenangan indah kita bersama...</p>
+
+      <!-- Photo Gallery (Polaroid Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Polaroid 1 -->
+        <div class="polaroid-card animate-fade-in" style="animation-delay: 0s">
+          <div class="polaroid-image bg-gradient-to-br from-pink-300 to-red-200 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
+            📷
+          </div>
+          <p class="text-center mt-3 font-quicksand text-gray-700">Kenangan Pertama Kita</p>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main id="main-content" class="d-none">
-        <!-- Captured Memories Section -->
-        <section id="memories" class="page-section">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title"><i class="fas fa-camera-retro me-2"></i> Captured Memories</h2>
-                        <p class="section-subtitle">Every moment with you is a treasure</p>
-                    </div>
-                </div>
-                
-                <div class="row g-4">
-                    <!-- Photo 1 -->
-                    <div class="col-md-4">
-                        <div class="photo-frame polaroid">
-                            <div class="photo-wrapper">
-                                <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="photo-img" alt="Memory 1">
-                            </div>
-                            <div class="photo-caption">Our first adventure together</div>
-                            <div class="photo-date">June 2023</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Photo 2 -->
-                    <div class="col-md-4">
-                        <div class="photo-frame polaroid">
-                            <div class="photo-wrapper">
-                                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="photo-img" alt="Memory 2">
-                            </div>
-                            <div class="photo-caption">That perfect sunset</div>
-                            <div class="photo-date">August 2023</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Photo 3 -->
-                    <div class="col-md-4">
-                        <div class="photo-frame polaroid">
-                            <div class="photo-wrapper">
-                                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="photo-img" alt="Memory 3">
-                            </div>
-                            <div class="photo-caption">Celebrating your birthday</div>
-                            <div class="photo-date">December 2023</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Photo Strip -->
-                    <div class="col-12 mt-5">
-                        <div class="photobooth-strip">
-                            <div class="strip-image" style="background-image: url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
-                            <div class="strip-image" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
-                            <div class="strip-image" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w-400&q=80')"></div>
-                            <div class="strip-image" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80')"></div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Polaroid 2 -->
+        <div class="polaroid-card animate-fade-in" style="animation-delay: 0.1s">
+          <div class="polaroid-image bg-gradient-to-br from-purple-300 to-pink-300 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
+            🌹
+          </div>
+          <p class="text-center mt-3 font-quicksand text-gray-700">Cinta Kita Tumbuh</p>
+        </div>
+
+        <!-- Polaroid 3 -->
+        <div class="polaroid-card animate-fade-in" style="animation-delay: 0.2s">
+          <div class="polaroid-image bg-gradient-to-br from-yellow-200 to-pink-200 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
+            ❤️
+          </div>
+          <p class="text-center mt-3 font-quicksand text-gray-700">Selamanya Bersama</p>
+        </div>
+
+        <!-- Polaroid 4 -->
+        <div class="polaroid-card animate-fade-in" style="animation-delay: 0.3s">
+          <div class="polaroid-image bg-gradient-to-br from-red-300 to-orange-200 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
+            😍
+          </div>
+          <p class="text-center mt-3 font-quicksand text-gray-700">Senyumanmu Indah</p>
+        </div>
+
+        <!-- Polaroid 5 -->
+        <div class="polaroid-card animate-fade-in" style="animation-delay: 0.4s">
+          <div class="polaroid-image bg-gradient-to-br from-blue-300 to-purple-300 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
+            ✨
+          </div>
+          <p class="text-center mt-3 font-quicksand text-gray-700">Momen Berkesan</p>
+        </div>
+
+        <!-- Polaroid 6 -->
+        <div class="polaroid-card animate-fade-in" style="animation-delay: 0.5s">
+          <div class="polaroid-image bg-gradient-to-br from-pink-400 to-red-300 h-48 flex items-center justify-center text-white text-5xl rounded-sm">
+            🎉
+          </div>
+          <p class="text-center mt-3 font-quicksand text-gray-700">Bahagia Bersama</p>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-center gap-4 mt-12">
+        <button onclick="goToSection('landing')" class="btn-custom btn-custom-secondary">← Kembali</button>
+        <button onclick="goToSection('flowers')" class="btn-custom btn-custom-yes">Lanjut Flowers →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. VIRTUAL FLOWERS -->
+  <section id="flowers" class="hidden min-h-screen py-20 px-4 bg-gradient-to-b from-pink-50 to-red-50">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-4xl font-bold text-red-600 text-center mb-4">🌷 Buket Bunga Untukmu</h2>
+      <p class="text-center text-gray-600 mb-12">Setiap bunga memiliki makna spesial...</p>
+
+      <!-- Flower Container -->
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-12">
+        
+        <!-- Bunga (SVG / Emoji) -->
+        <div class="flex-shrink-0">
+          <div class="flower-bouquet animate-float">
+            <div class="text-9xl">🌷</div>
+          </div>
+        </div>
+
+        <!-- Pesan Bunga -->
+        <div class="flex-1">
+          <div class="space-y-6">
+            
+            <!-- Message 1 -->
+            <div class="flower-message paper-effect p-6 animate-fade-in hover:shadow-lg transition-all">
+              <h3 class="text-xl font-bold text-pink-600 mb-2">🌷 Tulip Merah</h3>
+              <p class="text-gray-700">
+                Melambangkan cinta sejati. Setiap kelopak merepresentasikan kasih sayangku yang mendalam untukmu. Warna merah adalah simbol api cinta yang tidak pernah padam.
+              </p>
             </div>
-        </section>
 
-        <!-- Virtual Flowers Section -->
-        <section id="flowers" class="page-section bg-light-pink">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title"><i class="fas fa-spa me-2"></i> Virtual Flowers</h2>
-                        <p class="section-subtitle">A digital bouquet that never wilts</p>
-                    </div>
-                </div>
-                
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="flower-bouquet">
-                            <div class="flower tulip" data-bs-toggle="tooltip" data-bs-placement="top" title="Tulip - Perfect Love">
-                                <div class="flower-head">
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                </div>
-                                <div class="stem"></div>
-                                <div class="leaf"></div>
-                            </div>
-                            
-                            <div class="flower rose" data-bs-toggle="tooltip" data-bs-placement="top" title="Rose - Eternal Love">
-                                <div class="flower-head">
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                </div>
-                                <div class="stem"></div>
-                                <div class="leaf"></div>
-                            </div>
-                            
-                            <div class="flower lily" data-bs-toggle="tooltip" data-bs-placement="top" title="Lily - Purity of Heart">
-                                <div class="flower-head">
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                    <div class="petal"></div>
-                                </div>
-                                <div class="stem"></div>
-                                <div class="leaf"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-6">
-                        <div class="paper-container crinkled-paper p-4 p-lg-5">
-                            <h3 class="mb-4 text-dark-red"><i class="fas fa-heart me-2"></i> Why These Flowers?</h3>
-                            
-                            <div class="flower-messages">
-                                <div class="message-bubble mb-3">
-                                    <div class="message-content">
-                                        <strong>Tulip:</strong> Represents perfect, deep love. Like my love for you - complete and unwavering.
-                                    </div>
-                                </div>
-                                
-                                <div class="message-bubble mb-3">
-                                    <div class="message-content">
-                                        <strong>Rose:</strong> Symbol of eternal love. No matter how much time passes, my love for you only grows stronger.
-                                    </div>
-                                </div>
-                                
-                                <div class="message-bubble mb-3">
-                                    <div class="message-content">
-                                        <strong>Lily:</strong> Stands for purity and devotion. My heart is pure and completely devoted to you.
-                                    </div>
-                                </div>
-                                
-                                <div class="message-bubble">
-                                    <div class="message-content">
-                                        <strong>The Bouquet:</strong> Each flower represents a part of what you mean to me. Together, they form a love that's beautiful, eternal, and true.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Message 2 -->
+            <div class="flower-message paper-effect p-6 animate-fade-in hover:shadow-lg transition-all" style="animation-delay: 0.1s">
+              <h3 class="text-xl font-bold text-pink-600 mb-2">🌸 Bunga Sakura</h3>
+              <p class="text-gray-700">
+                Melambangkan keindahan dan kehidupan yang singkat namun bermakna. Setiap saat bersama dirimu adalah momen yang tidak akan pernah aku lupakan.
+              </p>
             </div>
-        </section>
 
-        <!-- Music Player Section -->
-        <section id="music" class="page-section">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title"><i class="fas fa-music me-2"></i> Our Song</h2>
-                        <p class="section-subtitle">"Ada Untukmu" by Budi Doremi - Our special melody</p>
-                    </div>
-                </div>
-                
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-8">
-                        <div class="paper-container crinkled-paper p-4 p-lg-5">
-                            <div class="music-player">
-                                <div class="album-cover mb-4">
-                                    <div class="cover-image">
-                                        <i class="fas fa-heart music-heart"></i>
-                                    </div>
-                                </div>
-                                
-                                <h4 class="song-title mb-3">Ada Untukmu - Budi Doremi</h4>
-                                
-                                <div class="audio-controls mb-4">
-                                    <div class="progress mb-3">
-                                        <div class="progress-bar" role="progressbar" style="width: 0%"></div>
-                                    </div>
-                                    
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <span class="current-time">0:00</span>
-                                        <span class="duration">4:30</span>
-                                    </div>
-                                    
-                                    <div class="controls d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-outline-love me-3" id="prev-btn">
-                                            <i class="fas fa-step-backward"></i>
-                                        </button>
-                                        <button class="btn btn-love btn-circle" id="play-btn">
-                                            <i class="fas fa-play"></i>
-                                        </button>
-                                        <button class="btn btn-outline-love ms-3" id="next-btn">
-                                            <i class="fas fa-step-forward"></i>
-                                        </button>
-                                    </div>
-                                    
-                                    <div class="volume-control mt-3">
-                                        <i class="fas fa-volume-up me-2"></i>
-                                        <input type="range" class="form-range" id="volume-slider" min="0" max="100" value="70">
-                                    </div>
-                                </div>
-                                
-                                <div class="secret-message alert alert-love mt-4">
-                                    <h5><i class="fas fa-lock-open me-2"></i> Secret Message</h5>
-                                    <p id="secret-text" class="mb-0">Play the song and listen carefully at <strong>2:15</strong> for a special message just for you...</p>
-                                </div>
-                                
-                                <!-- YouTube Embed -->
-                                <div class="mt-5">
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/SXHwgBTPhuQ" title="Ada Untukmu - Budi Doremi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <p class="text-center mt-2 small text-muted">Listen to our song directly on YouTube</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Message 3 -->
+            <div class="flower-message paper-effect p-6 animate-fade-in hover:shadow-lg transition-all" style="animation-delay: 0.2s">
+              <h3 class="text-xl font-bold text-pink-600 mb-2">💐 Buket Lengkap</h3>
+              <p class="text-gray-700">
+                Ini adalah simbol komitmenku untuk terus mencintai, melindungi, dan menghargaimu setiap hari. Bersamamu adalah keputusan terbaik dalam hidupku.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
 
-        <!-- Love Letter Section -->
-        <section id="message" class="page-section bg-light-pink">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-12 text-center mb-5">
-                        <h2 class="section-title"><i class="fas fa-envelope me-2"></i> Message for My Love</h2>
-                        <p class="section-subtitle">Words from my heart to yours</p>
-                    </div>
-                </div>
-                
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="paper-container love-letter p-4 p-lg-5">
-                            <div class="letter-header text-center mb-4">
-                                <div class="wax-seal">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <h3 class="dancing-font mt-3">My Dearest Love,</h3>
-                            </div>
-                            
-                            <div class="letter-body">
-                                <p class="letter-paragraph">
-                                    As I sit down to write this letter, my heart is overflowing with emotions that words can hardly capture. Every day with you feels like a beautiful dream that I never want to wake up from.
-                                </p>
-                                
-                                <p class="letter-paragraph">
-                                    I remember the first time we met, how your smile lit up the room and how your laughter became my favorite melody. From that moment, I knew there was something special about you, something that would change my life forever.
-                                </p>
-                                
-                                <p class="letter-paragraph">
-                                    You've brought so much joy, love, and meaning into my life. With you, ordinary moments become extraordinary memories. A simple walk in the park feels like an adventure, a quiet evening at home feels like a celebration, and every morning waking up next to you feels like a blessing.
-                                </p>
-                                
-                                <div class="highlighted-quote my-4 p-4">
-                                    <i class="fas fa-quote-left fa-2x text-pink opacity-50"></i>
-                                    <p class="mb-0 ms-4">You are the missing piece I didn't know I was looking for, the answer to questions I hadn't yet asked.</p>
-                                    <i class="fas fa-quote-right fa-2x text-pink opacity-50 text-end"></i>
-                                </div>
-                                
-                                <p c
+      <!-- Navigation Buttons -->
+      <div class="flex justify-center gap-4 mt-12">
+        <button onclick="goToSection('gallery')" class="btn-custom btn-custom-secondary">← Kembali</button>
+        <button onclick="goToSection('music')" class="btn-custom btn-custom-yes">Musik Spesial →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. MUSIC PLAYER -->
+  <section id="music" class="hidden min-h-screen py-20 px-4">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-4xl font-bold text-red-600 text-center mb-4">🎵 Lagu Untukmu</h2>
+      <p class="text-center text-gray-600 mb-12">Ada Untukmu - Budi Doremi</p>
+
+      <!-- Music Player Card -->
+      <div class="paper-effect p-10 animate-fade-in">
+        
+        <!-- Album Art -->
+        <div class="mb-8 flex justify-center">
+          <div class="w-48 h-48 bg-gradient-to-br from-pink-400 to-red-500 rounded-lg shadow-lg flex items-center justify-center text-white text-7xl animate-pulse">
+            🎶
+          </div>
+        </div>
+
+        <!-- Player Info -->
+        <h3 class="text-2xl font-bold text-center text-gray-800 mb-2">Ada Untukmu</h3>
+        <p class="text-center text-gray-600 mb-8">By Budi Doremi</p>
+
+        <!-- YouTube Embed -->
+        <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+          <iframe 
+            width="100%" 
+            height="315" 
+            src="https://www.youtube.com/embed/SXHwgBTPhuQ" 
+            title="Ada Untukmu - Budi Doremi" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- Secret Message -->
+        <div class="bg-pink-100 border-2 border-pink-300 rounded-lg p-6 mb-8">
+          <p class="text-center text-pink-700 font-semibold mb-3">🤫 Ada Pesan Rahasia!</p>
+          <p class="text-center text-gray-700">Dengarkan lagu ini dan perhatikan liriknya. Di menit 1:20, ada pesan spesial yang aku taruh khusus untukmu. Cinta sejati bukan hanya kata-kata, tapi juga perasaan yang hidup dalam setiap nada musik.</p>
+        </div>
+
+        <!-- Music Player Controls (Interactive) -->
+        <div class="bg-gradient-to-r from-pink-200 to-red-200 rounded-lg p-6">
+          <div class="flex justify-center items-center gap-4 mb-4">
+            <button class="text-3xl hover:scale-110 transition">⏮️</button>
+            <button id="play-btn" class="text-4xl hover:scale-110 transition">▶️</button>
+            <button class="text-3xl hover:scale-110 transition">⏭️</button>
+          </div>
+          <div class="w-full bg-gray-300 rounded-full h-2">
+            <div class="bg-red-600 h-2 rounded-full" style="width: 45%;"></div>
+          </div>
+          <p class="text-center text-sm text-gray-600 mt-3">3:45 / 8:30</p>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-center gap-4 mt-12">
+        <button onclick="goToSection('flowers')" class="btn-custom btn-custom-secondary">← Kembali</button>
+        <button onclick="goToSection('message')" class="btn-custom btn-custom-yes">Surat Cintaku →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SURAT DIGITAL (MESSAGE FOR MY LOVE) -->
+  <section id="message" class="hidden min-h-screen py-20 px-4 bg-gradient-to-b from-red-50 to-pink-100">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-4xl font-bold text-red-600 text-center mb-4">💝 Surat Untukmu</h2>
+      <p class="text-center text-gray-600 mb-12">Dari hati yang paling dalam...</p>
+
+      <!-- Love Letter Card -->
+      <div class="paper-effect p-12 animate-fade-in shadow-2xl">
+        
+        <!-- Letter Header -->
+        <div class="text-center mb-8 pb-6 border-b-2 border-pink-200">
+          <p class="text-pink-600 font-semibold">Untuk orang yang aku cintai,</p>
+        </div>
+
+        <!-- Letter Content -->
+        <div class="space-y-6 text-gray-700 leading-relaxed font-light text-lg mb-10">
+          <p>
+            Aku tidak tahu harus mulai dari mana untuk mengucapkan betapa berartinya dirimu dalam hidupku. Mungkin tidak ada kata-kata yang cukup sempurna untuk menggambarkan perasaan ini, tapi aku akan mencoba.
+          </p>
+
+          <p>
+            Sejak hari pertama kita bertemu, hidupku berubah menjadi lebih berwarna. Setiap hari bersamamu adalah hadiah yang tidak pernah aku bayangkan akan aku terima. Senyummu membuat hari-hariku cerah, dan kehangatan cintamu membuat setiap momen terasa berarti.
+          </p>
+
+          <p>
+            Aku ingin kamu tahu bahwa aku menghargai setiap detail kecil tentang dirimu. Cara kamu tertawa, cara kamu peduli dengan orang lain, cara kamu bermimpi... semua itu membuat aku jatuh cinta lebih dalam setiap hari.
+          </p>
+
+          <p>
+            Hidup ini tidak selalu mudah, tetapi ketika aku bersama dirimu, semuanya terasa seperti itu bisa ditangani. Aku berjanji untuk selalu mendukungmu, melindungimu, dan terus mencintai dirimu dengan sepenuh hati.
+          </p>
+
+          <p>
+            Terima kasih telah menjadi bagian dari hidup aku. Terima kasih atas cinta, kesetiaan, dan kepercayaan yang kamu berikan. Aku tidak bisa menunggu untuk melihat masa depan kita bersama.
+          </p>
+
+          <p>
+            Dengan sepenuh hati,
+          </p>
+        </div>
+
+        <!-- Digital Signature -->
+        <div class="pt-8 border-t-2 border-pink-200">
+          <p class="text-4xl font-great-vibes text-pink-600 mb-2">Your Love</p>
+          <p class="text-gray-500 text-sm">Ditulis dengan cinta pada {{ current_date }}</p>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="text-center mt-8 text-4xl space-x-4">
+          <span class="animate-bounce" style="animation-delay: 0s;">💕</span>
+          <span class="animate-bounce" style="animation-delay: 0.2s;">💕</span>
+          <span class="animate-bounce" style="animation-delay: 0.4s;">💕</span>
+        </div>
+      </div>
+
+      <!-- Final Message -->
+      <div class="text-center mt-12">
+        <p class="text-2xl font-bold text-red-600 mb-4">Selamanya Milikmu 🎁</p>
+        <p class="text-gray-600 mb-8">Ini adalah cara aku mengatakan "I Love You" dalam bentuk digital.</p>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-center gap-4 mt-8">
+        <button onclick="goToSection('music')" class="btn-custom btn-custom-secondary">← Kembali</button>
+        <button onclick="goToSection('landing')" class="btn-custom btn-custom-yes">Mulai Ulang 🔄</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
